@@ -11,4 +11,8 @@ export class HomePage {
 
   }
 
+  public myVehicles(): void {
+    console.log('click');
+  }
+
 }
