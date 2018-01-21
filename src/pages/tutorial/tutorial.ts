@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../../pages/home/home';
-
-/**
- * Generated class for the TutorialPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { StorageProvider } from '../../providers/storage/storage';
 
 @IonicPage()
 @Component({
@@ -16,18 +10,21 @@ import { HomePage } from '../../pages/home/home';
 })
 export class TutorialPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private storageProvider: StorageProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TutorialPage');
+
   }
 
-  openPage(page){
+  openPage(page) {
     this.navCtrl.push(page);
   }
 
-  openHomePage(){
+  openHomePage() {
     this.navCtrl.push(HomePage);
   }
 
