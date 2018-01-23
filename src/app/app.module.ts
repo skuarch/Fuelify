@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { TutorialPage } from '../pages/tutorial/tutorial';
+import { EntryPointPage } from '../pages/entry-point/entry-point';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,7 +19,8 @@ import { StorageProvider } from '../providers/storage/storage';
     MyApp,
     HomePage,
     ListPage,
-    TutorialPage
+    TutorialPage,
+    EntryPointPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { StorageProvider } from '../providers/storage/storage';
     MyApp,
     HomePage,
     ListPage,
-    TutorialPage
+    TutorialPage,
+    EntryPointPage
   ],
   providers: [
     StatusBar,

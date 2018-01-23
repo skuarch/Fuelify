@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-/*
-  Generated class for the StorageProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class StorageProvider {
 
@@ -20,10 +15,8 @@ export class StorageProvider {
     this.storage.set(key, value);
   }
 
-  getValue(key) {
-    this.storage.get(key).then((value) => {
-      console.log('Your age is', value);
-    });
+  getValue(key):Promise<any> {
+    return this.storage.get(key);
   }
 
 }

@@ -20,12 +20,9 @@ export class TutorialPage {
 
   }
 
-  openPage(page) {
-    this.navCtrl.push(page);
-  }
-
   openHomePage() {
-    this.navCtrl.push(HomePage);
+    this.storageProvider.setKeyValue('skipTutorial', true);
+    this.navCtrl.setRoot(HomePage);
   }
 
 }
