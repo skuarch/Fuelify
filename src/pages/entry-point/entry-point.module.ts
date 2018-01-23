@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { EntryPointPage } from './entry-point';
+// import { IonicPageModule } from 'ionic-angular';
+// import { EntryPointPage } from './entry-point';
 
 @NgModule({
   declarations: [
-    EntryPointPage,
+    // EntryPointPage,
   ],
   imports: [
-    IonicPageModule.forChild(EntryPointPage),
+   // IonicPageModule.forChild(EntryPointPage),
   ],
 })
 export class EntryPointPageModule {}
