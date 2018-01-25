@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { EntryPointPage } from '../pages/entry-point/entry-point';
+import { MyVehiclesPage } from '../pages/my-vehicles/my-vehicles';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +21,8 @@ import { StorageProvider } from '../providers/storage/storage';
     HomePage,
     ListPage,
     TutorialPage,
-    EntryPointPage
+    EntryPointPage,
+    MyVehiclesPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { StorageProvider } from '../providers/storage/storage';
     HomePage,
     ListPage,
     TutorialPage,
-    EntryPointPage
+    EntryPointPage,
+    MyVehiclesPage
   ],
   providers: [
     StatusBar,
