@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { MyVehiclesPage } from '../my-vehicles/my-vehicles';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,7 @@ export class HomePage {
   }
 
   public myVehicles(): void {
-    console.log('click');
+    this.navCtrl.push(MyVehiclesPage);
   }
 
 }
