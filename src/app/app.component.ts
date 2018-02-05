@@ -25,8 +25,7 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public sqlite: SQLite,
-    // public vehicleProvider: VehicleProvider
+    public sqlite: SQLite
   ) {
     this.initializeApp();
 
@@ -43,7 +42,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#151515');
       this.splashScreen.hide();
       this.createDatabase();
     });
