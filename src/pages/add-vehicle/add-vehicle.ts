@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Vehicle } from '../../model/vehicle';
 import { AlertController } from 'ionic-angular';
 import { VehicleProvider } from '../../providers/vehicle-provider';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -11,6 +12,7 @@ import { VehicleProvider } from '../../providers/vehicle-provider';
 })
 export class AddVehiclePage {
 
+  name: string;
   model: number;
   years: number[] = new Array();
   vehicle: Vehicle = {
@@ -48,8 +50,18 @@ export class AddVehiclePage {
         });
         alert.present();
         this.isSaved = true;
+        this.name = this.vehicle.name;
+        this.model = this.vehicle.model;
+        this.vehicle = {
+          name: '',
+          model: 0
+        }
       })
       .catch(error => { throw error });
+  }
+
+  navigateHome() {
+    this.navCtrl.setRoot(HomePage);
   }
 
 }
