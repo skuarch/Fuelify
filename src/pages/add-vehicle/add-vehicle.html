@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add New Vehicle</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <p class="padding-5">
+    Add a new vehicle in order to track all the refield of this vehicle, this app doesn't have any
+  </p>
+
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Vehicle Name</ion-label>
+      <ion-input [(ngModel)]="vehicle.name" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Model</ion-label>
+      <ion-select [(ngModel)]="vehicle.model">
+        <ion-option value="{{year}}" *ngFor="let year of years">{{year}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="padding-5">
+      <button ion-button block (click)="saveVehicle()">Save Vehicle</button>
+    </div>
+
+    <ion-card>
+      <ion-item>
+            vehicle saved: {{ vehicle.name }} model: {{ vehicle.model }}
+      </ion-item>
+    </ion-card>
+
+  </ion-list>
+</ion-content>

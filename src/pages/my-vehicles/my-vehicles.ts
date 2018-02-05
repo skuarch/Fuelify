@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the MyVehiclesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AddVehiclePage } from '../../pages/add-vehicle/add-vehicle';
 
 @IonicPage()
 @Component({
@@ -20,6 +14,10 @@ export class MyVehiclesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyVehiclesPage');
+  }
+
+  addVehicle() {
+    this.navCtrl.push(AddVehiclePage);
   }
 
 }
