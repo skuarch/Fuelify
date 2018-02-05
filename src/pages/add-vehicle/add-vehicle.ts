@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Vehicle } from '../../model/vehicle';
 import { AlertController } from 'ionic-angular';
+import { VehicleProvider } from '../../providers/vehicle-provider';
 
 @IonicPage()
 @Component({
@@ -10,15 +11,19 @@ import { AlertController } from 'ionic-angular';
 })
 export class AddVehiclePage {
 
-  model:number;
-  years:number[] = new Array();
-  vehicle:Vehicle = {
-    name:'',
-    model:0
+  model: number;
+  years: number[] = new Array();
+  vehicle: Vehicle = {
+    name: '',
+    model: 0
   };
   isSaved: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController
+  ) {
     this.getYears();
   }
 
@@ -28,19 +33,23 @@ export class AddVehiclePage {
   getYears() {
     let date = new Date();
     let year = date.getFullYear();
-    for(let i = year; i >= 1950; i--) {
+    for (let i = year; i >= 1950; i--) {
       this.years.push(i);
     }
   }
 
   saveVehicle() {
-    let alert = this.alertCtrl.create({
-      title: 'New Vehicle!',
-      subTitle: 'Your new vehicle has been added successfully!',
-      buttons: ['OK']
-    });
-    alert.present();
-    this.isSaved = true;
+    VehicleProvider.saveVehicle(this.vehicle)
+      .then(() => {
+        let alert = this.alertCtrl.create({
+          title: 'New Vehicle created!',
+          subTitle: 'Your new vehicle has been added successfully!',
+          buttons: ['OK']
+        });
+        alert.present();
+        this.isSaved = true;
+      })
+      .catch(error => { throw error });
   }
 
 }

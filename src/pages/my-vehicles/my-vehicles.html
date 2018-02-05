@@ -9,13 +9,12 @@
     <button ion-button block (click)="addVehicle()">Add vehicle</button>
   </div>
   <ion-item-group>
-    <button ion-item>
-      <ion-icon name="leaf" item-start></ion-icon>
-      March 2014
-    </button>
-    <button ion-item>
-      <ion-icon name="leaf" item-start></ion-icon>
-      Ikon 2013
+    <button ion-item *ngFor="let vehicle of vehicles">
+      <ion-icon name="car" item-start></ion-icon>
+      {{ vehicle.name }} model {{ vehicle.model }}
     </button>
   </ion-item-group>
+  <div class="padding-5" *ngIf="vehicles.length < 1">
+    you don't have any vehicle yet, use the button add vehicle to create a vehicle
+  </div>
 </ion-content>

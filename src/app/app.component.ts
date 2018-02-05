@@ -9,6 +9,8 @@ import { ListPage } from '../pages/list/list';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { EntryPointPage } from '../pages/entry-point/entry-point';
 
+import { VehicleProvider } from '../providers/vehicle-provider';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,13 +19,14 @@ export class MyApp {
 
   rootPage: any = EntryPointPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public sqlite: SQLite
+    public sqlite: SQLite,
+    // public vehicleProvider: VehicleProvider
   ) {
     this.initializeApp();
 
@@ -52,16 +55,17 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  private createDatabase(){
+  private createDatabase() {
     this.sqlite.create({
       name: 'fuelify.db',
       location: 'default'
     })
-    .then((db) => {
-      console.log(db);
-    })
-    .catch(error =>{
-      console.error(error);
-    });
+      .then((db) => {
+        VehicleProvider.setDatabase(db);
+        VehicleProvider.createTable();
+      })
+      .catch(error => {
+        throw error;
+      });
   }
 }

@@ -16,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { StorageProvider } from '../providers/storage/storage';
+import { VehicleProvider } from '../providers/vehicle-provider';
 
 @NgModule({
   declarations: [
@@ -45,9 +46,10 @@ import { StorageProvider } from '../providers/storage/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     StorageProvider,
-    SQLite
+    SQLite,
+    VehicleProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }
