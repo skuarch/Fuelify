@@ -1,0 +1,8 @@
+ionic start myApp sidemenu
+cordova run --emulator
+ionic cordova build android --prod
+ionic serve --lab
+ionic cordova resources
+ionic cordova platform add android
+ionic cordova build --release android
+ionic cordova run android
