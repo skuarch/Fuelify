@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddVehiclePage } from '../../pages/add-vehicle/add-vehicle';
 import { VehicleProvider } from '../../providers/vehicle-provider';
 import { Vehicle } from '../../model/vehicle';
+import { VehicleDetailPage } from '../../pages/vehicle-detail/vehicle-detail';
+import { SharedData } from '../../model/shared-data';
 
 @IonicPage()
 @Component({
@@ -33,6 +35,16 @@ export class MyVehiclesPage {
 
   ionViewWillEnter() {
     this.getVehicles();
+  }
+
+  vehicleDetail(vehicle:Vehicle) {
+
+    if(!vehicle) {
+      throw new Error('vehicle is undefinied');
+    }
+
+    SharedData.setVehicle(vehicle);
+    this.navCtrl.push(VehicleDetailPage);
   }
 
 }

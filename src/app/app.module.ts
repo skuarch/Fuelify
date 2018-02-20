@@ -10,6 +10,8 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { EntryPointPage } from '../pages/entry-point/entry-point';
 import { MyVehiclesPage } from '../pages/my-vehicles/my-vehicles';
 import { AddVehiclePage } from '../pages/add-vehicle/add-vehicle';
+import { VehicleDetailPage } from '../pages/vehicle-detail/vehicle-detail';
+import { FillUpGasPage } from '../pages/fill-up-gas/fill-up-gas';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,7 +28,9 @@ import { VehicleProvider } from '../providers/vehicle-provider';
     TutorialPage,
     EntryPointPage,
     MyVehiclesPage,
-    AddVehiclePage
+    AddVehiclePage,
+    VehicleDetailPage,
+    FillUpGasPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { VehicleProvider } from '../providers/vehicle-provider';
     TutorialPage,
     EntryPointPage,
     MyVehiclesPage,
-    AddVehiclePage
+    AddVehiclePage,
+    VehicleDetailPage,
+    FillUpGasPage
   ],
   providers: [
     StatusBar,

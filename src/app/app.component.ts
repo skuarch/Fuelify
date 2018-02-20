@@ -10,6 +10,8 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { EntryPointPage } from '../pages/entry-point/entry-point';
 
 import { VehicleProvider } from '../providers/vehicle-provider';
+import { SharedData } from '../model/shared-data';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -60,6 +62,7 @@ export class MyApp {
       location: 'default'
     })
       .then((db) => {
+        SharedData.setDb(db);
         VehicleProvider.setDatabase(db);
         VehicleProvider.createTable();
       })

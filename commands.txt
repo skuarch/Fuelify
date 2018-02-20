@@ -7,6 +7,18 @@ ionic cordova platform add android
 ionic cordova build --release android
 ionic cordova run android
 
+// run emulator and deploy app into emulator
+ionic cordova run android --prod --release
+
+// deploy to emulator
+ionic cordova run android
+ionic cordova emulate
+ionic cordova run android --device
+
+// see the devices on chrome
+chrome://inspect/#devices
+
+// npm
 ionic cordova plugin add cordova-sqlite-storage
 npm install --save @ionic/storage
 
