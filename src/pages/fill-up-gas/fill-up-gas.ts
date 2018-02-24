@@ -16,6 +16,7 @@ export class FillUpGasPage {
   price: number;
   date: any;
   measure: any;
+  note:string;
 
   constructor(
     public navCtrl: NavController,

@@ -27,3 +27,5 @@ ionic cordova run browser
 
 ionic cordova plugin add cordova-plugin-statusbar
 npm install --save @ionic-native/status-bar
+
+ionic cordova run android --emulator
