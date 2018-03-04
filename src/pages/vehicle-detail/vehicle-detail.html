@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Vehicle Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <p class="padding-5">
+        Change, update or delete this vehicle.
+      </p>
+
+      <ion-list>
+        <ion-item>
+          <ion-label fixed>Vehicle Name</ion-label>
+          <ion-input [(ngModel)]="vehicle.name" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Model</ion-label>
+          <ion-select [(ngModel)]="vehicle.model">
+            <ion-option value="{{year}}" *ngFor="let year of years">{{year}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="padding-5" *ngIf="vehicle.id <= 0">
+            <p>
+              Please choose a vehicle from My Vehicle section or create a new one
+            </p>
+        </div>
+
+        <div class="padding-5" *ngIf="vehicle.id > 0">
+            <button ion-button block (click)="updateVehicle()">Update</button>
+        </div>
+
+        <div class="padding-5" *ngIf="vehicle.id > 0">
+            <button ion-button block (click)="deleteVehicle()" color="danger">Delete</button>
+        </div>
+
+      </ion-list>
+</ion-content>

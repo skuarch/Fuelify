@@ -1,28 +1,30 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+<ion-header class="black">
+  <ion-navbar hideBackButton>
+    <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Fuelify</ion-title>
+    <ion-title>
+      Fuelify
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page">
 
   <ion-card (click)="myVehicles()">
-    <img src="assets/imgs/card-saopaolo.png"/>
+    <img src="assets/imgs/myVehicles.jpg"/>
     <div class="card-title">My Vehicles</div>
     <div class="card-subtitle">0 vehicles</div>
   </ion-card>
 
-  <ion-card>
-    <img src="assets/imgs/card-amsterdam.png"/>
-    <div class="card-title">Refill Track</div>
+  <ion-card (click)="fillUpGas()">
+    <img src="assets/imgs/refill.jpg"/>
+    <div class="card-title">Fill up gas</div>
     <div class="card-subtitle">0 refills</div>
   </ion-card>
 
   <ion-card>
-    <img src="assets/imgs/card-sf.png"/>
+    <img src="assets/imgs/analitycs.jpg"/>
     <div class="card-title">Analitycs</div>
     <div class="card-subtitle">charts about fuel</div>
   </ion-card>

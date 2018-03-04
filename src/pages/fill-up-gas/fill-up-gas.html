@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Fill Up Gas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="vehicles.length > 0">
+    <ion-item>
+      <ion-label fixed>Vehicle</ion-label>
+      <ion-select [(ngModel)]="vehicle">
+        <ion-option value="{{vehicle.id}}" *ngFor="let vehicle of vehicles">
+          {{vehicle.name}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Amount</ion-label>
+      <ion-input [(ngModel)]="amount" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Measure</ion-label>
+      <ion-select [(ngModel)]="measure">
+        <ion-option value="{{measure.id}}" *ngFor="let measure of measures">
+          {{measure.name}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Price</ion-label>
+      <ion-input [(ngModel)]="price" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Notes</ion-label>
+      <ion-textarea [(ngModel)]="notes"></ion-textarea>
+    </ion-item>
+    <div class="padding-5">
+      <button ion-button block (click)="saveFillUp()">Save</button>
+    </div>
+  </div>
+</ion-content>

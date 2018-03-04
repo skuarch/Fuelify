@@ -1,24 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SQLite } from '@ionic-native/sqlite';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { TutorialPage } from '../pages/tutorial/tutorial';
+import { EntryPointPage } from '../pages/entry-point/entry-point';
+import { MyVehiclesPage } from '../pages/my-vehicles/my-vehicles';
+import { AddVehiclePage } from '../pages/add-vehicle/add-vehicle';
+import { VehicleDetailPage } from '../pages/vehicle-detail/vehicle-detail';
+import { FillUpGasPage } from '../pages/fill-up-gas/fill-up-gas';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { StorageProvider } from '../providers/storage/storage';
+import { VehicleProvider } from '../providers/vehicle-provider';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    TutorialPage
+    TutorialPage,
+    EntryPointPage,
+    MyVehiclesPage,
+    AddVehiclePage,
+    VehicleDetailPage,
+    FillUpGasPage
   ],
   imports: [
     BrowserModule,
@@ -30,13 +42,20 @@ import { StorageProvider } from '../providers/storage/storage';
     MyApp,
     HomePage,
     ListPage,
-    TutorialPage
+    TutorialPage,
+    EntryPointPage,
+    MyVehiclesPage,
+    AddVehiclePage,
+    VehicleDetailPage,
+    FillUpGasPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    StorageProvider
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    StorageProvider,
+    SQLite,
+    VehicleProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

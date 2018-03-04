@@ -1,0 +1,31 @@
+ionic start myApp sidemenu
+cordova run --emulator
+ionic cordova build android --prod
+ionic serve --lab
+ionic cordova resources
+ionic cordova platform add android
+ionic cordova build --release android
+ionic cordova run android
+
+// run emulator and deploy app into emulator
+ionic cordova run android --prod --release
+
+// deploy to emulator
+ionic cordova run android
+ionic cordova emulate
+ionic cordova run android --device
+
+// see the devices on chrome
+chrome://inspect/#devices
+
+// npm
+ionic cordova plugin add cordova-sqlite-storage
+npm install --save @ionic/storage
+
+ionic cordova platform add browser
+ionic cordova run browser
+
+ionic cordova plugin add cordova-plugin-statusbar
+npm install --save @ionic-native/status-bar
+
+ionic cordova run android --emulator
