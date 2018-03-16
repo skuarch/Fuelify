@@ -29,3 +29,13 @@ ionic cordova plugin add cordova-plugin-statusbar
 npm install --save @ionic-native/status-bar
 
 ionic cordova run android --emulator
+
+
+// gradle access problems
+sudo chmod 777 /home/skuarch/Projects/Fuelify/platforms/android/gradlew
+
+// check errors
+adb logcat | grep -i 'io.ionic.starter'
+adb logcat | grep -i 'cordova'
+adb logcat | grep -i 'exception'
+adb logcat -v long -f '/mnt/sdcard/android.logs'
