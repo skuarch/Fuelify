@@ -11,7 +11,7 @@ import { Vehicle } from '../../model/vehicle';
 export class FillUpGasPage {
 
   vehicle:Vehicle;
-  vehicles:Vehicle[];
+  vehicles: Vehicle[] = new Array<Vehicle>();
   amount: number;
   price: number;
   date: any;
@@ -22,11 +22,13 @@ export class FillUpGasPage {
     public navCtrl: NavController,
     public navParams: NavParams
   ) {
+    this.vehicles = new Array();
     this.getVehicles();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FillUpGasPage');
+    this.getVehicles();
   }
 
   getVehicles() {

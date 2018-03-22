@@ -39,3 +39,5 @@ adb logcat | grep -i 'io.ionic.starter'
 adb logcat | grep -i 'cordova'
 adb logcat | grep -i 'exception'
 adb logcat -v long -f '/mnt/sdcard/android.logs'
+
+npm i -g ionic@3.19.1
