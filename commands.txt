@@ -1,3 +1,5 @@
+emulator -list-avds
+
 ionic start myApp sidemenu
 cordova run --emulator
 ionic cordova build android --prod
