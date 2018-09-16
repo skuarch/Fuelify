@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { EntryPointPage } from '../pages/entry-point/entry-point';
+import { SettingsPage } from '../pages/settings/settings';
 
 import { VehicleProvider } from '../providers/vehicle-provider';
 import { SharedData } from '../model/shared-data';
@@ -35,7 +36,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Tutorial', component: TutorialPage }
+      { title: 'Tutorial', component: TutorialPage },
+      { title: 'Settings', component: SettingsPage }
     ];
 
   }
@@ -53,7 +55,12 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if (page.component == HomePage) {
+      this.nav.setRoot(page.component);
+    } else {
+      this.nav.push(page.component);
+    }
+
   }
 
   private createDatabase() {
