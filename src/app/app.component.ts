@@ -11,6 +11,7 @@ import { EntryPointPage } from '../pages/entry-point/entry-point';
 import { SettingsPage } from '../pages/settings/settings';
 
 import { VehicleProvider } from '../providers/vehicle-provider';
+import { LiquidUnitProvider } from '../providers/liquid-unit-provider';
 import { SharedData } from '../model/shared-data';
 
 
@@ -71,9 +72,15 @@ export class MyApp {
       .then((db) => {
         SharedData.setDb(db);
         VehicleProvider.setDatabase(db);
-        VehicleProvider.createTable();
+        VehicleProvider.createTable()
+          .then(() => console.log('table vehicle created'))
+          .catch(e => console.error('error creating table vehicle ', e));
+        LiquidUnitProvider.setDatabase(db);
+        LiquidUnitProvider.createTable();
+        LiquidUnitProvider.insertDefaultData();
       })
       .catch(error => {
+        console.error('error creating db', error);
         throw error;
       });
   }

@@ -17,7 +17,8 @@ export class AddVehiclePage {
   years: number[] = new Array();
   vehicle: Vehicle = {
     name: '',
-    model: 0
+    model: 0,
+    isDeleted: 0
   };
   isSaved: boolean = false;
 
@@ -54,10 +55,14 @@ export class AddVehiclePage {
         this.model = this.vehicle.model;
         this.vehicle = {
           name: '',
-          model: 0
+          model: 0,
+          isDeleted: 0
         }
       })
-      .catch(error => { throw error });
+      .catch(error => { 
+        console.error('error saveVehicle ', error);
+        throw error 
+      });
   }
 
   navigateHome() {

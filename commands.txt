@@ -6,6 +6,8 @@ ionic cordova resources
 ionic cordova platform add android
 ionic cordova build --release android
 ionic cordova run android
+ionic cordova build android --aot --minifyjs --minifycss --release
+
 
 // run emulator and deploy app into emulator
 ionic cordova run android --prod --release
@@ -45,3 +47,10 @@ npm i -g ionic@3.19.1
 // emulator
 emulator -list-avds
 emulator @Nexus_5X_API_26_Oreo
+
+
+adb -d shell "run-as io.ionic.starter cat ./databases/fuelify.db" > fuelify.db
+adb kill-server
+
+// for android emulator
+sudo apt-get install virt-manager

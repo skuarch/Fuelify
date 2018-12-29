@@ -1,16 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Fill Up Gas</ion-title>
+    <ion-title>Fill up gas tank</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  
+
+  <div class="padding-5" *ngIf="vehicles.length < 1">
+    you don't have any vehicle yet, go to vehicles section to create it.
+  </div>
+
+  <div class="padding-5" *ngIf="vehicles.length > 0">
     <ion-item>
       <ion-label fixed>Vehicle</ion-label>
-      <ion-select [(ngModel)]="vehicle">
-        <ion-option value="{{vehicle.id}}" *ngFor="let vehicle of vehicles">
-          {{vehicle.name}}
+      <ion-select [(ngModel)]="vehicle.name">
+        <ion-option value="{{v.name}}" *ngFor="let v of vehicles" selected="{{vehicle.name}}">
+          {{v.name}}
         </ion-option>
       </ion-select>
     </ion-item>
@@ -19,16 +24,18 @@
       <ion-input [(ngModel)]="amount" type="number"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label fixed>Measure</ion-label>
-      <ion-select [(ngModel)]="measure">
-        <ion-option value="{{measure.id}}" *ngFor="let measure of measures">
-          {{measure.name}}
-        </ion-option>
+      <ion-label fixed>Odometer</ion-label>
+      <ion-input [(ngModel)]="odometer" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Units</ion-label>
+      <ion-select [(ngModel)]="liquidUnit.name">
+        <ion-option *ngFor="let ul of liquidUnits" selected="{{ liquidUnit.name }}">{{ul.name}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label fixed>Price</ion-label>
-      <ion-input [(ngModel)]="price" type="number"></ion-input>
+      <ion-input [(ngModel)]="price" type="number"> {{ price | number : '0.0-10000000'}} </ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Date</ion-label>
@@ -41,5 +48,6 @@
     <div class="padding-5">
       <button ion-button block (click)="saveFillUp()">Save</button>
     </div>
-  
+  </div>
+
 </ion-content>

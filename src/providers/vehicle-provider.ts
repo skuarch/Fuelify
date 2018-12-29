@@ -36,8 +36,8 @@ export class VehicleProvider {
     if (!this.db) {
       throw new Error('db is undefinied');
     }
-
-    let sql = 'CREATE TABLE IF NOT EXISTS vehicle(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, model INTEGER)';
+console.log('creating table');
+    let sql = 'CREATE TABLE IF NOT EXISTS vehicles(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, model INTEGER, isDeleted INTEGER)';
     return VehicleProvider.db.executeSql(sql, []);
   }
 
@@ -58,9 +58,9 @@ export class VehicleProvider {
     if (!vehicle.model) {
       throw new Error('vehicle.model is undefinied');
     }
-
-    let sql = 'INSERT INTO vehicle (name, model) VALUES (?,?)';
-    return VehicleProvider.db.executeSql(sql, [vehicle.name, vehicle.model]);
+console.log('que mierdas ' + vehicle.isDeleted);
+    let sql = 'INSERT INTO vehicles (name, model, isDeleted) VALUES (?,?,?)';
+    return VehicleProvider.db.executeSql(sql, [vehicle.name, vehicle.model, 0]);
   }
 
   static getVehicles(): Promise<Vehicle[]> {
@@ -69,7 +69,7 @@ export class VehicleProvider {
       throw new Error('db is undefinied');
     }
 
-    let sql = 'SELECT * FROM vehicle';
+    let sql = 'SELECT * FROM vehicles WHERE isDeleted = 0';
     return VehicleProvider.db.executeSql(sql, [])
       .then(response => {
         let vehicles = new Array<Vehicle>();
@@ -103,7 +103,7 @@ export class VehicleProvider {
       throw new Error('vehicle.model is undefinied');
     }
 
-    let sql = 'UPDATE vehicle SET name = ?, model = ? WHERE id = ?';
+    let sql = 'UPDATE vehicles SET name = ?, model = ? WHERE id = ?';
     return VehicleProvider.db.executeSql(sql, [vehicle.name, vehicle.model, vehicle.id]);
 
   }
@@ -118,7 +118,7 @@ export class VehicleProvider {
       throw new Error('vehicle.id is undefinied');
     }
 
-    let sql = 'DELETE FROM vehicle WHERE id = ?';
+    let sql = 'DELETE FROM vehicles WHERE id = ?';
     return VehicleProvider.db.executeSql(sql, [vehicle.id]);
 
   }

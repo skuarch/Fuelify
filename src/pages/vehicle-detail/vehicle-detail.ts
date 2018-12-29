@@ -67,7 +67,8 @@ export class VehicleDetailPage {
       this.vehicle = {
         id: 0,
         name: '',
-        model: 0
+        model: 0,
+        isDeleted: 0
       }
     }).catch(error => {
       throw error;

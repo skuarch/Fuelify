@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SQLite } from '@ionic-native/sqlite';
+import { DecimalPipe } from '@angular/common';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -36,7 +37,9 @@ import { VehicleProvider } from '../providers/vehicle-provider';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, 
+      { scrollAssist: true,
+        autoFocusAssist: true }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -58,7 +61,8 @@ import { VehicleProvider } from '../providers/vehicle-provider';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     StorageProvider,
     SQLite,
-    VehicleProvider
+    VehicleProvider,
+    DecimalPipe
   ]
 })
 export class AppModule { }
