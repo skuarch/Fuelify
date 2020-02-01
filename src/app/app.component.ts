@@ -13,6 +13,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { VehicleProvider } from '../providers/vehicle-provider';
 import { LiquidUnitProvider } from '../providers/liquid-unit-provider';
 import { SharedData } from '../model/shared-data';
+import { FullUpProvider } from '../providers/full-up-provider';
 
 
 @Component({
@@ -78,6 +79,8 @@ export class MyApp {
         LiquidUnitProvider.setDatabase(db);
         LiquidUnitProvider.createTable();
         LiquidUnitProvider.insertDefaultData();
+        FullUpProvider.setDatabase(db);
+        FullUpProvider.createTable();
       })
       .catch(error => {
         console.error('error creating db', error);

@@ -21,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { StorageProvider } from '../providers/storage/storage';
 import { VehicleProvider } from '../providers/vehicle-provider';
+import { FullUpProvider } from '../providers/full-up-provider';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { VehicleProvider } from '../providers/vehicle-provider';
     StorageProvider,
     SQLite,
     VehicleProvider,
-    DecimalPipe
+    DecimalPipe,
+    FullUpProvider
   ]
 })
 export class AppModule { }

@@ -5,6 +5,10 @@ import { Vehicle } from '../../model/vehicle';
 import { LiquidUnit } from '../../model/liquid-unit';
 import { LiquidUnitProvider } from '../../providers/liquid-unit-provider';
 import { DecimalPipe } from '@angular/common';
+import { FillUp } from '../../model/fill-up';
+import { FullUpProvider } from '../../providers/full-up-provider';
+import { AlertController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -22,11 +26,13 @@ export class FillUpGasPage {
   price: any;
   date: any;
   note: string;
+  isSaved: boolean = false;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private decimalPipe: DecimalPipe
+    private decimalPipe: DecimalPipe,
+    public alertCtrl: AlertController
   ) {
     this.vehicles = new Array();
     this.liquidUnit = {
@@ -98,24 +104,43 @@ export class FillUpGasPage {
       this.liquidUnit.name = this.liquidUnits[0].name;
     }
     
-    let fillUpGas;
+    let fillUpGas: FillUp;
     let lu: LiquidUnit;
     LiquidUnitProvider.getLiquidUnitByName(this.liquidUnit.name).then(data => {
       lu = data;
-      fillUpGas = {
+      fillUpGas = {        
+        vehicleId: this.vehicle.id,
+        vehicleName: this.vehicle.name,        
+        liquidUnitId: lu.id,
+        liquidUnitName: lu.name,
         amount: this.amount,
-        vehicleName: this.vehicle,
         odometer: this.odometer,
-        units: lu,
         price: this.price,
         date: this.date
       };
+      FullUpProvider.saveFillUp(fillUpGas).then(
+        data => { 
+          console.log(data);
+          this.isSaved = true;
+        });
+      let alert = this.alertCtrl.create({
+        title: 'Your Fill up has been saved!',
+        subTitle: '',
+        buttons: ['OK']
+      });
+      alert.present();
+
+      console.log('fillUpGas: ', fillUpGas);
     });
-    console.log('fillUpGas: ', fillUpGas);
+    
   }
 
   next() {
     console.log('next');
+  }
+
+  navigateHome() {
+    this.navCtrl.setRoot(HomePage);
   }
 
 }
